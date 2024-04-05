@@ -25,6 +25,22 @@
 -------------------------
 @@ 스크립트릿 -ex01 (http://localhost:8080/jsp/0405/ex01.jsp)
 
+<%@ page language="java" 
+	contentType="text/html; charset=UTF-8" 
+    pageEncoding="UTF-8" 	
+    buffer = "8kb" 	// buffer 의 기능: jsp 페이지가 클라이언트로부터 요청을 받아 서버에서 동적으로 생성되는 html 페이지를 응답할 때 사용됨. 
+   			// buffer="1kb", autoFlush="false" (autoFlush 기본값 true) > hello를 1000번 출력하면 1kb가 넘어감
+			// autoFlush="false" 로 설정하면 오류가 발생한다. false: 버퍼를 비우지 않겠다. (jsp buffer overflow)
+    autoFlush = "true"	 // 8kb, true 기본값 - hello 1000번 출력 (정상작동) 
+%> 
+   
+<% 		// 메서드 영역
+	for(int i = 0; i < 1000; i++){
+		out.println("hello"); 	// system 을 붙이면 안됨. 그냥 out.println
+	}
+    
+%>
+
 
 
 
