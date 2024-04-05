@@ -37,13 +37,34 @@
 <% 		// 메서드 영역
 	for(int i = 0; i < 1000; i++){
 		out.println("hello"); 	// system 을 붙이면 안됨. 그냥 out.println
-	}
-    
+	}    
 %>
+----------------------
+# isThreadSafe 속성
 
-
-
-
+<%@ page language="java" 
+	contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" 	
+    buffer = "8kb" 	
+    autoFlush = "true"	
+    isThreadSafe = "true"  // 기본값 true 
+%> 			   // false - 하나의 브라우저에서 동작 하면 다른 브라우저에선 안함.
+			   // 브라우저 하나에서만 동작함. 사이트를 두개 동시에 열 수 없음. (크롬에서 실행하면 엣지에선 실행 안되는 식으로 진행됨) 
+   
+<% 		// 메서드 영역
+	for(int i = 0; i < 1000; i++){
+		out.println("hello"); 
+	}
+%>
+---------------------------------
+# info 속성 : 간단한 설명 (아무런 기능 없음) 그냥 페이지의 설명을 개발자끼리 공유하는 용도
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" 	
+    buffer = "8kb" 	
+    autoFlush = "true"	
+    isThreadSafe = "false"
+    info = "기능 없음, 페이지 설명"
+%> 
+----------------------------------
+# session ★(중요)
 
 
 
